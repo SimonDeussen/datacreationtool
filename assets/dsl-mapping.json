@@ -1,0 +1,23 @@
+{
+    "opening-tag": "{",
+    "closing-tag": "}",
+    "body": "<!DOCTYPE html>\n <head>\n <meta charset=\"utf-8\">\n <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"css/style.css\">\n <title>THIS IS RapidFrontendPrototyping</title>\n </head>\n <body>\n <main class=\"\">\n {}\n </main>\n <footer class=\"footer\">\n <p>DataCreationTool - RapidFrontendPrototyping</p>\n </footer>\n </body>\n </html>\n",
+    "header": "<nav class=\"menue\">\n    <ul class=\"nav nav-pills\">\n      {}\n    </ul>\n  </nav>\n ",
+    "btn-active": "<li class=\"active\"><a href=\"#\">[]</a></li>\n", 
+    "btn-inactive-blue": "<button type=\"button\" class=\"btn btn-primary btn-reset btn-blue\"><a href=\"#\">[]</a></button>\n",
+    "btn-inactive-black": "<button type=\"button\" class=\"btn btn-primary btn-reset btn-black\"><a href=\"#\">[]</a></button>\n",
+    "btn-inactive-white": "<button type=\"button\" class=\"btn btn-primary btn-reset btn-white\"><a href=\"#\">[]</a></button>\n",
+    "btn-inactive-grey": "<button type=\"button\" class=\"btn btn-primary btn-reset btn-grey\"><a href=\"#\">[]</a></button>\n",
+    "row": "<div class=\"container\"><div class=\"row\">{}</div></div>\n",
+    "single": "<div class=\"col-lg-12\">\n{}\n</div>\n",
+    "double": "<div class=\"col-lg-6\">\n{}\n</div>\n",
+    "quadruple": "<div class=\"col-lg-3\">\n{}\n</div>\n",
+    "big-title": "<h2>[]</h2>",
+    "small-title": "<h4>[]</h4>",
+    "text": "<p>[]</p>\n",
+    "logo-left": "<a class=\"logo-left\">RFP</a>\n",
+    "logo-right": "<a class=\"logo-right\">RFP</a>\n",
+    "sidebar": "<div class=\"wrapper\">\n    <div id=\"sidebar\">\n        <div class=\"sidebar-header\">\n            <h3>RFS</h3>\n        </div>\n        <ul class=\"list-unstyled components\">{}</ul>\n</div>\n</div>",
+    "sidebar-element": "<li><a href=\"#\">[]</a><li>"  
+  }
+  

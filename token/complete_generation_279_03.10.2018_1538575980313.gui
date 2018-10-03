@@ -1,0 +1,33 @@
+
+body {
+sidebar {
+sidebar-element, sidebar-element
+}, 
+row {
+double {
+small-title, text, btn-inactive-grey
+}, 
+double {
+small-title, text, btn-inactive-grey
+}
+}, 
+row {
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+double {
+small-title, text, btn-inactive-black
+}
+}, 
+row {
+double {
+small-title, text, btn-inactive-grey
+}, 
+double {
+small-title, text, btn-inactive-black
+}
+}
+}

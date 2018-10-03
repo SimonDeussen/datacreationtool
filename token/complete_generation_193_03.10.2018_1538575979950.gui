@@ -1,0 +1,14 @@
+
+body {
+sidebar {
+sidebar-element
+}, 
+row {
+double {
+small-title, text, btn-inactive-grey
+}, 
+double {
+small-title, text, btn-inactive-grey
+}
+}
+}

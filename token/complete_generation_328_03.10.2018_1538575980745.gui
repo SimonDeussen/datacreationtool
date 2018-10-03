@@ -1,0 +1,45 @@
+
+body {
+sidebar {
+sidebar-element, sidebar-element, sidebar-element
+}, 
+row {
+double {
+small-title, text, btn-inactive-grey
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}
+}, 
+row {
+quadruple {
+small-title, text, btn-inactive-blue
+}, 
+quadruple {
+small-title, text, btn-inactive-grey
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-blue
+}
+}, 
+row {
+quadruple {
+small-title, text, btn-inactive-grey
+}, 
+quadruple {
+small-title, text, btn-inactive-grey
+}, 
+quadruple {
+small-title, text, btn-inactive-blue
+}, 
+quadruple {
+small-title, text, btn-inactive-grey
+}
+}
+}

@@ -116,8 +116,8 @@ def handleMPHtmlFileCreation(list, dsl_mapping, startIndex):
 def saveHtmlToFileFromLayout(rootNode, index, dsl_mapping):
     filename = "complete_generation" + "_" + str(index) + "_" + time.strftime("%d.%m.%Y") + "_" + str(current_milli_time())
 
-    # file_html =  open("markup/" + filename  + ".html","w+")
-    # file_html.write(rootNode.render(dsl_mapping))
+    file_html =  open("markup/" + filename  + ".html","w+")
+    file_html.write(rootNode.render(dsl_mapping))
 
     file_token = open("token/" + filename + ".gui", "w+")
     file_token.write(rootNode.toString2())
@@ -170,4 +170,3 @@ if __name__ == '__main__':
     
     
     
-

@@ -8,7 +8,7 @@ class Element:
             self.tag_name = tag_name    
         else:
             print("tag not in valid tags " + tag_name)
-            exit(1)
+            raise Exception("tag not in valid tags " + tag_name)
 
         self.content = content
         self.children = []

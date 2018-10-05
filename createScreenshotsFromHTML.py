@@ -26,8 +26,9 @@ def createScreenshots():
 def createScreenshotFromHtmlFile(fileNames, index):
     for filename in fileNames[index]:
         print(filename)
+        file_out = filename.replace(".html", "")
         try:
-            imgkit.from_file("markup/" + filename, 'img/' + filename + '.jpg')
+            imgkit.from_file("markup/" + filename, 'img/' + file_out + '.png')
         except Exception as e:
             print(e)
 

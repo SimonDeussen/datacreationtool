@@ -1,0 +1,34 @@
+
+body {
+header {
+logo-left, btn-inactive-white
+}, 
+row {
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-grey
+}
+}, 
+row {
+quadruple {
+small-title, text, btn-inactive-grey
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}, 
+quadruple {
+small-title, text, btn-inactive-black
+}
+}
+}

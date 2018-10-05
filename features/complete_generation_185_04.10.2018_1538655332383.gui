@@ -1,0 +1,16 @@
+
+body {
+header {
+logo-right, btn-inactive-white, btn-inactive-white, btn-inactive-white, btn-inactive-white
+}, 
+row {
+single {
+small-title, text, btn-inactive-blue
+}
+}, 
+row {
+single {
+small-title, text, btn-inactive-grey
+}
+}
+}

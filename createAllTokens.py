@@ -29,7 +29,7 @@ def createAllPossibilities():
 
 
     possible_num_of_rows = [1,2,3]
-    possible_row_type = [0,1,2,3,4]
+    possible_row_type = [0,1,2,3,4,5]
 
     row_count_layout_combinations = []
 
@@ -46,20 +46,23 @@ def createAllPossibilities():
             for num_of_menue_button in possible_num_of_menu_button:
                 for row_count_layout in row_count_layout_combinations:
 
-                        root = Element("body", "")
-
-                        if menu_flag:
-                            menu = tokenBuilder.createMenu(logo_flag, num_of_menue_button)
-                            root.addChildren(menu)
+                        if not menu_flag and not logo_flag:
+                            pass
                         else:
-                            sidebar = tokenBuilder.createSidebar(num_of_menue_button)
-                            root.addChildren(sidebar)
+                            root = Element("body", "")
 
-                        for i in range(len(row_count_layout)):
-                            row = tokenBuilder.createRow(row_count_layout[i])
-                            root.addChildren(row)
+                            if menu_flag:
+                                menu = tokenBuilder.createMenu(logo_flag, num_of_menue_button)
+                                root.addChildren(menu)
+                            else:
+                                sidebar = tokenBuilder.createSidebar(num_of_menue_button)
+                                root.addChildren(sidebar)
 
-                        complete_layouts.append(root)
+                            for i in range(len(row_count_layout)):
+                                row = tokenBuilder.createRow(row_count_layout[i])
+                                root.addChildren(row)
+
+                            complete_layouts.append(root)
 
     print("Created", len(complete_layouts), "different layouts.")
 
@@ -70,7 +73,7 @@ def createAllPossibilities():
 def saveTokenToFileFromLayout(rootNode, index, dsl_mapping):
     filename = "complete_generation" + "_" + str(index) + "_" + time.strftime("%d.%m.%Y") + "_" + str(current_milli_time())
 
-    file_token = open("token/" + filename + ".gui", "w+")
+    file_token = open("all_data/token_balanced/" + filename + ".gui", "w+")
     file_token.write(rootNode.toString2())
     return True
 
@@ -78,8 +81,6 @@ def saveTokenToFileFromLayout(rootNode, index, dsl_mapping):
 def handleTokenCreation(list, dsl_mapping, startIndex):
     for i in tqdm(range(len(list[startIndex]))):
         file_index = i + startIndex*NUM_OF_PROCESSES
-
-        # print("process", startIndex, "creating token file", i, file_index )
         saveTokenToFileFromLayout(list[startIndex][i], file_index, dsl_mapping)
     
 def createTokens():

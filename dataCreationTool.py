@@ -65,7 +65,7 @@ def createRandomFile():
 def createAllPossibilities():
     menu_or_sidebar = [True, False]
     logo_left_or_right = [True, False]
-    possible_num_of_menu_button = [1, 2, 3, 4]
+    possible_num_of_menu_button = [1, 2, 3, 4, 5]
 
 
     possible_num_of_rows = [1,2,3]

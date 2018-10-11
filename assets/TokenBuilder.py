@@ -92,15 +92,16 @@ class TokenBuilder:
 
     # can create 5 different rows, check row_type 0 until 4
     def createRow(self, row_type):
-        if not row_type in [0,1,2,3,4]:
+        if not row_type in [0,1,2,3,4,5]:
             print("wrong row type given", row_type)
             raise
         
         types = {   0: ["single"],
                     1: ["double", "double"],
                     2: ["double", "quadruple", "quadruple"],
-                    3: ["quadruple", "quadruple", "double"],
-                    4: ["quadruple", "quadruple", "quadruple", "quadruple"]
+                    3: ["quadruple", "double", "quadruple"],
+                    4: ["quadruple", "quadruple", "double"],
+                    5: ["quadruple", "quadruple", "quadruple", "quadruple"]
                 }
 
         row = Element("row", "")

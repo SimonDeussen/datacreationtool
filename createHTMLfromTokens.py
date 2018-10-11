@@ -17,8 +17,20 @@ tokenBuilder = TokenBuilder()
 
 NUM_OF_PROCESSES = 4
 
-current_milli_time = lambda: int(round(time.time() * 1000))
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("folder_path", help="enter the path to the folder with tokens") 
+parser.add_argument("folder_path_out", help="enter the path to the folder with tokens") 
+
+args = parser.parse_args()
+
+if args.folder_path == "" or args.folder_path_out == "":
+    print("Error: not enough argument supplied:")
+    print("enter a path with a file to converse")
+    exit(0)
+
+token_counts = []
 def getTokenListFromFile(filepath):
     with open(filepath) as data_file:
         tokenString = data_file.read()
@@ -42,13 +54,14 @@ def getTokenListFromFile(filepath):
 
             processed.append(element)
     
+    token_counts.append(len(processed))
     return processed
 
 def createNewContentElement(tag_name):
     content = ""
 
-    if tag_name in ["single", "double"]:
-        content = "" #tokenBuilder.createRandomParagraphText()
+    if tag_name in ["single", "double", "quadruple"]:
+        content = ""
     elif tag_name in ["text"]:
         content = tokenBuilder.createRandomShortParagraphText()
     elif tag_name in ["sidebar-element", "btn-inactive-blue", "btn-inactive-black", "btn-inactive-grey", "btn-inactive-white"]:
@@ -58,6 +71,7 @@ def createNewContentElement(tag_name):
 
 
     return Element(tag_name, content)
+    
 def createElementsFromTokenList(token_list):
     token_list.reverse()
 
@@ -84,7 +98,7 @@ def createElementsFromTokenList(token_list):
     return root
 
 def readAllTokensAndCompile():
-    path =  getcwd() + "/token/"
+    path =  args.folder_path
     onlyfiles = [f for f in listdir(path) if isfile(join(path, f)) and f != ".gitignore"]
 
     all_compiled_layouts = []
@@ -96,27 +110,24 @@ def readAllTokensAndCompile():
         except Exception as ex:
             print(ex)
             print("errpor in file:", file)
-        all_compiled_layouts.append(rootNode)
+        
+        entry = {"file_name": file, "rootNode": rootNode }
+        all_compiled_layouts.append(entry)
 
     print("read and compiled", len(all_compiled_layouts), "token lists from", path + "*")
 
     return all_compiled_layouts
 
-def saveHtmlToFileFromLayout(rootNode, index, dsl_mapping):
-    filename = "complete_generation" + "_" + str(index) + "_" + time.strftime("%d.%m.%Y") + "_" + str(current_milli_time())
-
-    file_html =  open("markup/" + filename  + ".html","w+")
-    file_html.write(rootNode.render(dsl_mapping))
-
-    file_token = open("token/" + filename + ".gui", "w+")
-    file_token.write(rootNode.toString2())
+def saveHtmlToFileFromLayout(entry, dsl_mapping):
+    file_name = entry["file_name"].replace(".gui", "")
+    file_html =  open( args.folder_path_out + file_name  + ".html","w+")
+    file_html.write(entry["rootNode"].render(dsl_mapping))
 
     return True
 
 def handleMPHtmlFileCreation(list, dsl_mapping, startIndex):
     for i in tqdm(range(len(list[startIndex]))):
-        file_index = i + startIndex*NUM_OF_PROCESSES
-        saveHtmlToFileFromLayout(list[startIndex][i], file_index, dsl_mapping)
+        saveHtmlToFileFromLayout(list[startIndex][i], dsl_mapping)
     
 
 def createHtml(layouts):
@@ -134,3 +145,11 @@ def createHtml(layouts):
 if __name__ == '__main__':
     all_layouts = readAllTokensAndCompile()
     createHtml(all_layouts)
+
+
+    print("Token length analysis:")
+    print("     average token length:", sum(token_counts)/float(len(token_counts)))
+    print("     max token length:    ", max(token_counts))
+    print("     min token length:    ", min(token_counts))
+    token_counts.sort()
+    print("     median token length: ", token_counts[int(len(token_counts)/2)])
